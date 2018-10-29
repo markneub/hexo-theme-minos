@@ -751,15 +751,23 @@ html { font-size: 18px; }
   .recent-posts {
     margin-top: 30px;
     font-size: .8rem;
-    display: none;
     ul {
-      
+      margin-top: 4px;
+      li {
+        list-style-type: square;
+        margin-left: 16px;
+        margin-bottom: 4px;
+        a {
+          color: #54a498;
+        }
+      }
     }
   }
 }
 
 .navbar-item img {
-  max-height: 1.5rem;
+  max-height: 2rem;
+  image-rendering: pixelated;
 }
 
 .footer {
@@ -779,12 +787,12 @@ html { font-size: 18px; }
   height: 125px;
   width: 125px;
   border-radius: 50%;
-
   border: 1px solid rgba(0,0,0,0.1);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
   shape-outside: ellipse(50px 50px at 50px 50px);
-  filter: grayscale(65%);
-  margin-top: 24px;
+  filter: grayscale(80%);
+  margin-top: 44px;
+  display: none;
 }
 
 #mask {

@@ -6,7 +6,7 @@
       <p style="font-weight: bold;">Recent posts:</p>
       <ul>
         <% page.posts.each(function(post) { %>
-          <li><%= post.title %></li>
+          <li><a href="<%= post.slug %>"><%= post.title %></a></li>
         <% }); %>
       </ul>
     </div>
