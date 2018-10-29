@@ -1,16 +1,38 @@
 <!DOCTYPE html>
-<html class="has-navbar-fixed-top">
+<html>
 <head>
     <%- partial('common/head') %>
 </head>
 <body>
-    <%- partial('common/navbar', { page }) %>
-    <%- body %>
-    <%- partial('common/footer') %>
-    <%- partial('common/scripts') %>
+    <div id="contact-card">
+        <div class="left">
+            <img src="/mug.jpg" id="mug" />
+        </div>
+        <div class="right">
+            <div class="name">Mark Neuburger</div>
+            <div class="byline">Software and Creative Engineer</div>
+            <div class="channels">
+                <div class="github">
+                    <i class="fab fa-fw fa-lg fa-github"></i> <a href="https://github.com/markneub/">github.com/markneub</a>
+                </div>
+                <div class="linkedin">
+                    <i class="fab fa-fw fa-lg fa-linkedin-in"></i> <a href="https://linkedin.com/in/markneub/">linkedin.com/in/markneub</a>
+                </div>
+                <div class="email">
+                    <i class="fas fa-fw fa-lg fa-envelope"></i> <a href="mailto:markneub+web@gmail.com">markneub+web@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="layer0">
+        <%- partial('common/navbar', { page }) %>
+        <%- body %>
+        <%- partial('common/footer') %>
+        <%- partial('common/scripts') %>
 
-    <% if (has_config('search.type')) { %>
-    <%- partial('search/' + get_config('search.type')) %>
-    <% } %>
+        <% if (has_config('search.type')) { %>
+        <%- partial('search/' + get_config('search.type')) %>
+        <% } %>
+    </div>
 </body>
 </html>

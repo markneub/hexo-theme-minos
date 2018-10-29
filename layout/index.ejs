@@ -1,9 +1,11 @@
 <section class="section">
   <div class="container homepage">    
-    <p class="lead">Nice to meet you! I write software and make fun electronic stuff. I can usually be found programming during the week and biking, hiking, or climbing on the weekends. I'm currently freelancing in NYC and seeking cool opportunities in web programming, physical computing, and interactive art. <a href="mailto:markneub+web@gmail.com">Get in touch</a>.</p>
-    <img src="contact/index/mug.jpg" id="mug" />
+    <p class="lead">Nice to meet you! I write software and make fun electronic stuff. I can usually be found programming during the week and biking, hiking, or climbing on the weekends. I'm currently freelancing in NYC and seeking cool opportunities in web programming, physical computing, and interactive art.</p>
+    <div class="contact-section">
+      <p style="font-weight: bold">Get in touch</p>
+    </div>
     <div class="recent-posts">
-      <p style="font-weight: bold;">Recent posts:</p>
+      <p style="font-weight: normal;">Recent blog posts:</p>
       <ul>
         <% page.posts.each(function(post) { %>
           <li><a href="<%= post.slug %>"><%= post.title %></a></li>

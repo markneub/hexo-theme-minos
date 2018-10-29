@@ -79,4 +79,28 @@
             $(this).text(moment($(this).attr('datetime')).fromNow());
         });
     }
+
+    var $cc = $('#contact-card');
+
+    function showModal() {
+        $('#layer0').addClass('blur')
+        $cc.removeClass('rollOut').addClass('jackInTheBox animated');
+    }
+
+    function hideModal() {
+        $('#layer0').removeClass('blur')
+        $cc.removeClass('jackInTheBox').addClass('rollOut animated');
+    }
+
+    $(document).on('click', function(event) {
+        if ($(event.target).closest('[href="/#contact"').length && !$('#layer0').hasClass('blur')) {
+            showModal();
+            return false
+        }
+        if (!$(event.target).closest('#contact-card').length && $('#layer0').hasClass('blur')) {
+            hideModal();
+            return false
+        }
+    });
 })(jQuery);
+
