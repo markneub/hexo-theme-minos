@@ -1,6 +1,6 @@
-$family-serif: "Ovo", "Georgia", "STZhongsong", "Microsoft YaHei", serif;
+$family-serif: Roboto, "Ovo", "Georgia", "STZhongsong", "Microsoft YaHei", serif;
 $family-mono: "Source Code Pro", monospace, "Microsoft YaHei";
-$family-sans: "Libre Franklin", "Arial", sans-serif;
+$family-sans: "Roboto", "Arial", sans-serif;
 $border-color: #dbdbdb;
 
 @import "../../../../node_modules/highlight.js/styles/atom-one-light";
@@ -724,11 +724,9 @@ figure.highlight {
   }
 }
 
-html { font-size: 18px; }
+html { font-size: 16px; }
 
 .homepage {
-  font-family: Roboto, "Libre Franklin", "Arial", sans-serif;
-
   h1 {
     font-size: 1.4rem;
     font-weight: bold;
@@ -738,16 +736,12 @@ html { font-size: 18px; }
   }
 
   p {
-    line-height: 2;
+    line-height: 1.8;
     font-size: 16px;
     max-width: 600px;
 
     a {
       @include link_hover_effects(#54a498);
-    }
-
-    &.lead {
-      margin: 24px 0;
     }
   }
 
@@ -757,11 +751,14 @@ html { font-size: 18px; }
     ul {
       margin-top: 2px;
       li {
-        list-style-type: square;
+        list-style-type: circle;
         margin-left: 16px;
         margin-bottom: 4px;
         a {
           color: #54a498;
+        }
+        .post-date {
+          font-weight: 300;
         }
       }
     }
@@ -810,6 +807,7 @@ html { font-size: 18px; }
 .navbar {
   top: 36px !important;
   background: none;
+  font-size: 18px;
 }
 
 
@@ -842,6 +840,10 @@ a.navbar-item.is-active, a.navbar-item:hover, a.navbar-link.is-active, a.navbar-
 .contact-section {
   margin-top: 24px;
   display: none;
+}
+
+.navbar {
+  margin-bottom: 24px;
 }
 
 .navbar, .navbar-end, .navbar-menu, .navbar-start {
@@ -912,13 +914,14 @@ a.navbar-item.is-active, a.navbar-item:hover, a.navbar-link.is-active, a.navbar-
   border: 1px solid rgba(0,0,0,0.1);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
   shape-outside: ellipse(50px 50px at 50px 50px);
-  filter: grayscale(80%);
+  filter: grayscale(100%);
 }
 
 #layer0.blur {
   filter: blur(2px);
   -webkit-filter: blur(1px);
-  transform: scale(0.97);
+  transform: scale(0.98);
+  transform-origin: center center;
   opacity: 0.7;
   pointer-events: none;
 }
