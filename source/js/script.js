@@ -93,7 +93,7 @@
     }
 
     $(document).on('click', function(event) {
-        if ($(event.target).closest('[href="/#contact"').length && !$('#layer0').hasClass('blur')) {
+        if ($(event.target).closest("[href='/#contact']").length && !$('#layer0').hasClass('blur')) {
             showModal();
             return false
         }
@@ -102,5 +102,9 @@
             return false
         }
     });
+
+    $('#contact-card-wrapper').on('click', function() {
+        hideModal();
+    })
 })(jQuery);
 

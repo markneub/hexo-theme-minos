@@ -4,6 +4,7 @@ $family-sans: "Roboto", "Arial", sans-serif;
 $border-color: #dbdbdb;
 
 @import "../../../../node_modules/highlight.js/styles/atom-one-light";
+@import "animate";
 
 // include in an anchor tag to make the underliney link style
 @mixin link_hover_effects($link_color) {
@@ -43,6 +44,11 @@ $border-color: #dbdbdb;
 
 body, button, input, select, textarea {
   font-family: $family-serif;
+}
+
+a {
+  color: #54a498;
+  &:hover { color: #54a498; }
 }
 
 $lg_min: 696px;
@@ -142,6 +148,15 @@ a.tag.article-tag {
         content: '#';
         position: absolute;
         right: 100%;
+      }
+    }
+
+    p {
+      margin-bottom: 0;
+      text-indent: 2rem;
+      line-height: 1.8;
+      &:first-of-type {
+        text-indent: 0;
       }
     }
   }
@@ -381,12 +396,7 @@ a.tag.article-tag {
     h6 {
       margin: 0;
       a {
-        color: inherit;
-        border-bottom: 1px solid transparent;
-
-        &:hover {
-          border-bottom-color: darkgray;
-        }
+        color: #54a498;
       }
     }
   }
@@ -833,20 +843,32 @@ a.navbar-item.is-active, a.navbar-item:hover, a.navbar-link.is-active, a.navbar-
 
 /* contact */
 
-.contact-section {
-  margin-top: 24px;
-  display: none;
-}
-
-#contact-card {
+#contact-card-wrapper {
+  z-index: 1;
+  position: absolute;
   width: 525px;
   height: 300px;
   top: 30%;
   left: 50%;
   position: absolute;
-  background: #fcffff ;
-  margin-top: -160px;
-  margin-left: -240px;
+  margin-top: -150px;
+  margin-left: -262px;
+  pointer-events: none;
+  @media screen and (max-width: 525px) {
+    transform: scale(0.9);
+  }
+  @media screen and (max-width: 485px) {
+    transform: scale(0.8);
+  }
+  @media screen and (max-width: 430px) {
+    transform: scale(0.7);
+  }
+}
+
+#contact-card {
+  width: 525px;
+  height: 300px;
+  background: #fffffc ;
   display: none;
   z-index: 1;
   &.animated {
@@ -906,7 +928,7 @@ a.navbar-item.is-active, a.navbar-item:hover, a.navbar-link.is-active, a.navbar-
   transform: scale(0.98);
   transform-origin: center center;
   opacity: 0.7;
-  pointer-events: none;
+  cursor: pointer;
 }
 
 #layer0 {

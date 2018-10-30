@@ -1,11 +1,8 @@
 <section class="section">
   <div class="container homepage">    
     <p class="lead">Nice to meet you! I write software and make fun electronic stuff. I can usually be found programming during the week and biking, hiking, or climbing on the weekends. I'm currently freelancing in NYC and seeking cool opportunities in web programming, physical computing, and interactive art.</p>
-    <div class="contact-section">
-      <p style="font-weight: bold">Get in touch</p>
-    </div>
     <div class="recent-posts">
-      <p style="font-weight: normal;">Recent blog posts:</p>
+      <p style="font-weight: normal;">Recent posts:</p>
       <ul>
         <% page.posts.each(function(post) { %>
           <li><a href="<%= post.slug %>"><%= post.title %></a> <span class="post-date"><%= moment(post.date).format('MMM Y') %></span></li>
