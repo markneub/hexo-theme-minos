@@ -871,6 +871,7 @@ a.navbar-item.is-active, a.navbar-item:hover, a.navbar-link.is-active, a.navbar-
   background: #fffffc ;
   display: none;
   z-index: 1;
+  pointer-events: all;
   &.animated {
     display: flex;
     animation-duration: 0.5s;
