@@ -154,7 +154,7 @@ a.tag.article-tag {
     p {
       margin-bottom: 0;
       text-indent: 2rem;
-      line-height: 1.8;
+      line-height: 1.5;
       &:first-of-type {
         text-indent: 0;
       }
@@ -941,4 +941,5 @@ a.navbar-item.is-active, a.navbar-item:hover, a.navbar-link.is-active, a.navbar-
   width: 150px;
   margin-top: 64px;
   float: right;
+  display: none;
 }
