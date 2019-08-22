@@ -152,12 +152,8 @@ a.tag.article-tag {
     }
 
     p {
-      margin-bottom: 0;
-      text-indent: 2rem;
+      margin: 0.8rem 0;
       line-height: 1.5;
-      &:first-of-type {
-        text-indent: 0;
-      }
     }
   }
 
