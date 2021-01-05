@@ -1,7 +1,7 @@
 const _ = require('lodash');
 const moment = require('moment');
 const cheerio = require('cheerio');
-const { formatRfc5646, formatIso639, getClosestRfc5646WithCountryCode, getPageLanguage } = require('./10_i18n');
+const { formatRfc5646, formatIso639, getClosestRfc5646WithCountryCode, getPageLanguage } = require('../lib/i18n')(hexo);
 
 const MOMENTJS_SUPPORTED_LANGUAGES = ['af', 'ar-dz', 'ar-kw', 'ar-ly', 'ar-ma', 'ar-sa',
     'ar-tn', 'ar', 'az', 'be', 'bg', 'bm', 'bn', 'bo', 'br', 'bs', 'ca', 'cs', 'cv', 'cy',
@@ -28,7 +28,7 @@ function getMomentLocale(language) {
 }
 
 function injectMomentLocale(func) {
-    return function() {
+    return function () {
         let language = getMomentLocale(getPageLanguage(this.page));
         moment.locale(language);
         const args = Array.prototype.slice.call(arguments).map(arg => {
@@ -52,7 +52,7 @@ hexo.extend.helper.register('is_tags', function () {
 /**
  * Generate html head title based on page type
  */
-hexo.extend.helper.register('page_title', function() {
+hexo.extend.helper.register('page_title', function () {
     const page = this.page;
     let title = page.title;
 
@@ -75,34 +75,34 @@ hexo.extend.helper.register('page_title', function() {
 
     const getConfig = hexo.extend.helper.get('get_config').bind(this);
 
-    return [title, getConfig('title', '', true)].filter(str => typeof(str) !== 'undefined' && str.trim() !== '').join(' - ');
+    return [title, getConfig('title', '', true)].filter(str => typeof (str) !== 'undefined' && str.trim() !== '').join(' - ');
 });
 
 /**
  * Format date to string without year.
  */
-hexo.extend.helper.register('format_date', injectMomentLocale(function(date) {
+hexo.extend.helper.register('format_date', injectMomentLocale(function (date) {
     return moment(date).format('MMM D');
 }));
 
 /**
  * Format date to string with year.
  */
-hexo.extend.helper.register('format_date_full', injectMomentLocale(function(date) {
+hexo.extend.helper.register('format_date_full', injectMomentLocale(function (date) {
     return moment(date).format('MMM D YYYY');
 }));
 
 /**
  * Get moment.js supported page locale
  */
-hexo.extend.helper.register('momentjs_locale', function() {
+hexo.extend.helper.register('momentjs_locale', function () {
     return getMomentLocale(getPageLanguage(this.page));
 });
 
 /**
  * Export moment.duration
  */
-hexo.extend.helper.register('duration', injectMomentLocale(function() {
+hexo.extend.helper.register('duration', injectMomentLocale(function () {
     return moment.duration.apply(null, arguments);
 }));
 
@@ -123,7 +123,7 @@ hexo.extend.helper.register('word_count', (content) => {
  * ]
  */
 hexo.extend.helper.register('toc_list', (content) => {
-    const $ = cheerio.load(content);
+    const $ = cheerio.load(content, { decodeEntities: false });
     const levels = [0, 0, 0];
     const levelTags = [];
     // Get top 3 headings
@@ -140,7 +140,7 @@ hexo.extend.helper.register('toc_list', (content) => {
         return tocList;
     }
     const headings = $(levelTags.join(','));
-    headings.each(function() {
+    headings.each(function () {
         const level = levelTags.indexOf(this.name);
         const id = $(this).attr('id');
         const text = _.escape($(this).text());
